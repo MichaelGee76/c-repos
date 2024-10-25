@@ -228,9 +228,16 @@ int add_application(void){
   }
 
   int list_applications(void){
-    printf("You have chosen to list applications.\n");
+    printf("List of your applications");
+    FILE *fptr;
+    if(fptr = fopen("appFolder/applications.csv", "r")){
+      // first print csv data
+      char line[600];
+      while(fgets(line, sizeof(line), fptr) != NULL){
+        printf("%s", line);
+      }
     return 0;
-  }
+  }}
 
   struct Application create_app(int current_id){
     
@@ -308,3 +315,5 @@ int add_application(void){
 
     return max_id;
 }
+
+
